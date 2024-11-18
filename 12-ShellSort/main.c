@@ -3,7 +3,7 @@
 #include <time.h>
 #define ARRAY_SIZE 100
 
-//Á¤·Ä ¿ä¼ÒµéÀ» Ãâ·Â
+//ì •ë ¬ ìš”ì†Œë“¤ì„ ì¶œë ¥
 void print_list(int list[], int n) {
 	for (int i = 0; i < n; i++) {
 		printf("%02d ", list[i]);
@@ -11,7 +11,7 @@ void print_list(int list[], int n) {
 	printf("\n");
 }
 
-//Á¤·Ä ¿ä¼ÒµéÀ» 20°³¸¸ Ãâ·Â
+//ì •ë ¬ ìš”ì†Œë“¤ì„ 20ê°œë§Œ ì¶œë ¥
 void print_partial_list(int list[], int n) {
 	for (int i = 0; i < n && i < 20; i++) {
 		printf("%02d ", list[i]);
@@ -19,7 +19,7 @@ void print_partial_list(int list[], int n) {
 	printf(". . . \n");
 }
 
-//¹è¿­¿¡ ·£´ı ¼ıÀÚµéÀ» »ğÀÔ
+//ë°°ì—´ì— ëœë¤ ìˆ«ìë“¤ì„ ì‚½ì…
 void generateRandomNumbers(int data[]) {
 	srand(time(0));
 	for (int i = 0; i < ARRAY_SIZE; i++) {
@@ -27,7 +27,7 @@ void generateRandomNumbers(int data[]) {
 	}
 }
 
-//½© Á¤·Ä »ğÀÔ ÇÔ¼ö
+//ì‰˜ ì •ë ¬ ì‚½ì… í•¨ìˆ˜
 int doShellSort(int list[], int first, int last, int gap, int* moveCount) {
 	int i, j, key, count = 0;
 	for (i = first; i < last; i += gap) {
@@ -43,7 +43,7 @@ int doShellSort(int list[], int first, int last, int gap, int* moveCount) {
 	return count;
 }
 
-//½© Á¤·Ä ÇÔ¼ö ±¸Çö
+//ì‰˜ ì •ë ¬ í•¨ìˆ˜ êµ¬í˜„
 void ShellSort(int list[], int n, int* comparisonCount, int* moveCount) {
 	int gap, i;
 	*comparisonCount = 0;
@@ -61,7 +61,7 @@ void ShellSort(int list[], int n, int* comparisonCount, int* moveCount) {
 	printf("\n");
 }
 
-//(º¸³Ê½º) »ğÀÔ Á¤·Ä ±¸Çö ÇÔ¼ö
+//(ë³´ë„ˆìŠ¤) ì‚½ì… ì •ë ¬ êµ¬í˜„ í•¨ìˆ˜
 void insertSort(int list[], int* comparisonCount, int* moveCount) {
 	int i, j, key;
 	*comparisonCount = 0;
@@ -87,21 +87,21 @@ int main() {
 	int array[ARRAY_SIZE];
 	int comparisonCount, moveCount;
 
-	generateRandomNumbers(array); // ¹è¿­À» ´Ù½Ã ÃÊ±âÈ­ÇÕ´Ï´Ù.
+	generateRandomNumbers(array); // ë°°ì—´ì„ ë‹¤ì‹œ ì´ˆê¸°í™”í•©ë‹ˆë‹¤.
 
 	printf("Shell Sort (n/2)\n");
 	ShellSort(array, 2, &comparisonCount, &moveCount);
 	printf("Shell Sort (n/2) - Comparisons: %d, Moves: %d\n\n", comparisonCount, moveCount);
 
-	generateRandomNumbers(array); // ¹è¿­À» ´Ù½Ã ÃÊ±âÈ­ÇÕ´Ï´Ù.
+	generateRandomNumbers(array); // ë°°ì—´ì„ ë‹¤ì‹œ ì´ˆê¸°í™”í•©ë‹ˆë‹¤.
 
 	printf("Shell Sort (n/3)\n");
 	ShellSort(array, 3, &comparisonCount, &moveCount);
 	printf("Shell Sort (n/3) - Comparisons: %d, Moves: %d\n\n", comparisonCount, moveCount);
 
-	generateRandomNumbers(array); // ¹è¿­À» ´Ù½Ã ÃÊ±âÈ­ÇÕ´Ï´Ù.
+	generateRandomNumbers(array); // ë°°ì—´ì„ ë‹¤ì‹œ ì´ˆê¸°í™”í•©ë‹ˆë‹¤.
 
-	printf("Insert Sort\n");
+	printf("Insert Sort:\n");
 	insertSort(array, &comparisonCount, &moveCount);
 	printf("Insert Sort - Comparisons: %d, Moves: %d\n\n", comparisonCount, moveCount);
 
